@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: nestjs-mysql
+    volumes:
+      - db-store:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=sample
+      - MYSQL_DATABASE=sample
+      - MYSQL_USER=sample
+      - MYSQL_PASSWORD=sample
+      - TZ=Asia/Tokyo
+    ports:
+      - 3306:3306
+
+# データを永続化させるため
+volumes:
+  db-store:
