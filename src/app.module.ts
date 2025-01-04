@@ -3,15 +3,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { getDatabaseConfig } from './config/database.config';
+// import dataSource from './config/database.config';
+// import AppDataSource from './config/database.config';
+import { AppDataSource } from './data-source'; // 追加
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }), // .env を読み込む
     TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) =>
-        getDatabaseConfig(configService),
+      useFactory: async () => ({
+        ...AppDataSource.options, // 統一された設定を利用
+      }),
     }),
     // TypeOrmModule.forFeature([User]), // エンティティを登録
   ],
