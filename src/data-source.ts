@@ -12,10 +12,10 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  // entities: ['dist/entities/*.entity.js'], // エンティティパス
-  // migrations: ['dist/migrations/*.js'], // マイグレーションパス
-  entities: ['src/entities/*.entity.ts'], // ソースコード用パス
-  migrations: ['src/migrations/*.ts'], // ソースコード用パス
+  entities: ['dist/entities/*.entity.js'], // エンティティパス
+  migrations: ['dist/migrations/*.js'], // マイグレーションパス
+  // entities: ['src/entities/*.entity.ts'], // ソースコード用パス
+  // migrations: ['src/migrations/*.ts'], // ソースコード用パス
   synchronize: false, // 本番環境では false
   logging: true,
 });
