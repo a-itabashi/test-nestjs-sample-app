@@ -4,6 +4,7 @@ import { Blog } from '../entities/blog.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BlogStatus } from './blog-status.enum';
+import { CreateBlogDto } from './create-blog.dto';
 
 // Repositoryを使わない方法
 // @Injectable()
@@ -28,7 +29,7 @@ import { BlogStatus } from './blog-status.enum';
 export class BlogsService {
   constructor(private readonly blogsRepository: BlogsRepository) {}
 
-  create(createBlogDto: { title: string; content: string }) {
+  create(createBlogDto: CreateBlogDto) {
     return this.blogsRepository.createBlog(createBlogDto); // カスタムメソッドを利用
   }
 }
