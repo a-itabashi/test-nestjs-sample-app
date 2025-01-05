@@ -10,7 +10,7 @@ import { BlogsModule } from './blogs/blogs.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }), // .env を読み込む
+    // ConfigModule.forRoot({ isGlobal: true }), // .env を読み込む
     TypeOrmModule.forRootAsync({
       useFactory: async () => ({
         ...AppDataSource.options, // 統一された設定を利用
