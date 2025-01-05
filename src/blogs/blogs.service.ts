@@ -28,7 +28,7 @@ import { BlogStatus } from './blog-status.enum';
 export class BlogsService {
   constructor(private readonly blogsRepository: BlogsRepository) {}
 
-  create() {
-    return this.blogsRepository.createBlog(); // カスタムメソッドを利用
+  create(createBlogDto: { title: string; content: string }) {
+    return this.blogsRepository.createBlog(createBlogDto); // カスタムメソッドを利用
   }
 }

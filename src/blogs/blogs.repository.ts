@@ -8,10 +8,15 @@ export class BlogsRepository extends Repository<Blog> {
     super(Blog, dataSource.manager);
   }
 
-  async createBlog(): Promise<Blog> {
+  async createBlog(createBlogDto: {
+    title: string;
+    content: string;
+  }): Promise<Blog> {
+    const { title, content } = createBlogDto;
+
     const blog = this.create({
-      title: 'test-title',
-      content: 'test-content',
+      title,
+      content,
       status: BlogStatus.PUBLISHED,
       // createdAt: new Date().toISOString(),
       // updatedAt: new Date().toISOString(),
