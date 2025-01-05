@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 // import dataSource from './config/database.config';
 // import AppDataSource from './config/database.config';
 import { AppDataSource } from './data-source'; // 追加
+import { BlogsModule } from './blogs/blogs.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AppDataSource } from './data-source'; // 追加
         ...AppDataSource.options, // 統一された設定を利用
       }),
     }),
+    BlogsModule,
     // TypeOrmModule.forFeature([User]), // エンティティを登録
   ],
   controllers: [AppController],
